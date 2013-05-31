@@ -1,0 +1,11 @@
+#page_nav li.expanded {
+    background:#fff;
+    display:block;
+    padding:0.4em 0 0.4em 1em;
+}
+#page_nav li.expanded > a:first-child {
+    padding:0;
+}
+#page_nav li.expanded > a.active {
+    color:#d56a03;
+}

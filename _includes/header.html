@@ -114,8 +114,8 @@
 <div id="tdr_crumbs">
     <div id="tdr_crumbs_content">
         <ul id="tdr_crumbs_list">
-            {% capture index_with_baseurl %}{{ site.baseurl }}index.html{% endcapture %}
-            {% if page.url == "index.html" or page.url == index_with_baseurl %}
+            {% capture baseurl_with_index %}{{ site.baseurl }}index.html{% endcapture %}
+            {% if page.url == "index.html" or page.url == site.baseurl or page.url == baseurl_with_index %}
             <li>HOME</li> 
             {% else %}
             <li><a href="{{ site.baseurl }}">HOME</a>
@@ -136,3 +136,5 @@
 <div class="tdr_fonts" id="tdr_content">
     <div id="tdr_content_content">
         <div id="tdr_2_col_content">
+            {{ subpage }}
+            &quot;{{ crumbs | join:"&quot;,&quot;" }}&quot;
