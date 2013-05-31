@@ -1,4 +1,3 @@
-{% capture baseurl %}/{{ page.url | remove_first:"/" | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -22,7 +21,7 @@
 <script src="http://www.ucsd.edu/common/cwp/active-cherry/png-min.js"></script>
 <![endif]-->
 <!-- Site-specific CSS files -->
-<link href="/css/site.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="{{ site.baseurl }}css/site.css" media="all" rel="stylesheet" type="text/css"/>
 <!-- Site-specific javascript files -->
 </head>
 <body>     
@@ -62,7 +61,7 @@
     <div id="tdr_title_content">
         <a href="http://www.ucsd.edu" id="tdr_title_ucsd_title">UC San Diego</a> 
         <div id="tdr_title_page_title">
-            <a href="/">Student Fee Advisory Committee</a>
+            <a href="{{ site.baseurl }}">Student Fee Advisory Committee</a>
         </div>
         <a class="search-button" id="tdr_title_search_link">Search</a>
         <a id="tdr_title_menu_link">Menu</a>
@@ -71,17 +70,27 @@
 <div id="tdr_nav">
     <div id="tdr_nav_content">
         <ul id="tdr_nav_list">
-            <li{% if baseurl == "/about/" %} class="active"{% endif %}><a href="/about/">About</a></li>
-            <li{% if baseurl == "/meetings/" %} class="active"{% endif %}><a href="/meetings/">Meetings</a>
+            {% capture about_url %}{{ site.baseurl }}about/index.html{% endcapture %}
+            {% capture meetings_url %}{{ site.baseurl }}meetings/index.html{% endcapture %}
+            {% capture meetings_agendas_url %}{{ site.baseurl }}meetings/agendas/index.html{% endcapture %}
+            {% capture meetings_minutes_url %}{{ site.baseurl }}meetings/minutes/index.html{% endcapture %}
+            {% capture fees_url %}{{ site.baseurl }}fees/index.html{% endcapture %}
+            {% capture recommendations_url %}{{ site.baseurl }}recommendations/index.html{% endcapture %}
+            {% capture contact_url %}{{ site.baseurl }}contact/index.html{% endcapture %}
+            {% capture members_url %}{{ site.baseurl }}members/index.html{% endcapture %}
+            {% capture subpage %}{{ site.baseurl }}{{ page.url | remove_first:site.baseurl | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
+            {% capture meetings_subpage %}{{ site.baseurl }}meetings/{% endcapture %}
+            <li{% if page.url == about_url %} class="active"{% endif %}><a href="{{ site.baseurl }}about/">About</a></li>
+            <li{% if subpage == meetings_subpage %} class="active"{% endif %}><a href="{{ site.baseurl }}meetings/">Meetings</a>
                 <ul>
-                    <li><a href="/meetings/agendas/">Agendas</a></li>
-                    <li><a href="/meetings/minutes/">Minutes</a></li>
+                    <li><a href="{{ site.baseurl }}meetings/agendas/">Agendas</a></li>
+                    <li><a href="{{ site.baseurl }}meetings/minutes/">Minutes</a></li>
                 </ul>
             </li>
-            <li{% if baseurl == "/fees/" %} class="active"{% endif %}><a href="/fees/">Student Fees</a></li>
-            <li{% if baseurl == "/recommendations/" %} class="active"{% endif %}><a href="/recommendations/">Recommendations</a></li>
-            <li{% if baseurl == "/contact/" %} class="active"{% endif %}><a href="/contact/">Contact</a></li>
-            <li{% if baseurl == "/members/" %} class="active"{% endif %}><a href="/members/">Members</a></li>
+            <li{% if page.url == fees_url %} class="active"{% endif %}><a href="{{ site.baseurl }}fees/">Student Fees</a></li>
+            <li{% if page.url == recommendations_url %} class="active"{% endif %}><a href="{{ site.baseurl }}recommendations/">Recommendations</a></li>
+            <li{% if page.url == contact_url %} class="active"{% endif %}><a href="{{ site.baseurl }}contact/">Contact</a></li>
+            <li{% if page.url == members_url %} class="active"{% endif %}><a href="{{ site.baseurl }}members/">Members</a></li>
         </ul>
     </div>
 </div>
@@ -105,15 +114,16 @@
 <div id="tdr_crumbs">
     <div id="tdr_crumbs_content">
         <ul id="tdr_crumbs_list">
-            {% if page.url == "index.html" or page.url == "/index.html" %}
+            {% capture index_with_baseurl %}{{ site.baseurl }}index.html{% endcapture %}
+            {% if page.url == "index.html" or page.url == index_with_baseurl %}
             <li>HOME</li> 
             {% else %}
-            <li><a href="/">HOME</a>
-            {% assign crumbs = page.url | remove_first:"/" | remove:"/index.html" | split:"/" %}
+            <li><a href="{{ site.baseurl }}">HOME</a>
+            {% assign crumbs = page.url | remove_first:site.baseurl | remove:"/index.html" | split:"/" %}
             {% for crumb in crumbs %}
             &#16;</li><li>
             {% unless forloop.last %}
-            <a href="/{{ crumbs | limit:forloop.index | join:"/" }}/">{{ crumb | upcase | remove:".html" }}</a>
+            <a href="{{ site.baseurl }}{{ crumbs | limit:forloop.index | join:"/" }}/">{{ crumb | upcase | remove:".html" }}</a>
             {% else %}
             {{ crumb | upcase | remove:".html" }}
             {% endunless %}

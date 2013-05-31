@@ -9,50 +9,50 @@
             <div class="styled">
                 <h2>SFAC</h2>
                 <ul id="page_nav">
-                    {% if baseurl == "/about/" %}
+                    {% if page.url == about_url %}
                     <li class="active">About</li>
                     {% else %}
-                    <li><a href="/about/">About</a></li>
+                    <li><a href="{{ site.baseurl }}about/">About</a></li>
                     {% endif %}
-                    {% if page.url == "/meetings/index.html" %}
+                    {% if page.url == meetings_url %}
                     <li class="expanded active">Meetings
-                    {% elsif baseurl == "/meetings/" %}
-                    <li class="expanded"><a href="/meetings/">Meetings</a>
+                    {% elsif subpage == meetings_subpage %}
+                    <li class="expanded"><a href="{{ site.baseurl }}meetings/">Meetings</a>
                     {% else %}
-                    <li class="collapsed"><a href="/meetings/">Meetings</a>
+                    <li class="collapsed"><a href="{{ site.baseurl }}meetings/">Meetings</a>
                     {% endif %}
                     <ul>
-                        {% if page.url == "/meetings/agendas/index.html" %}
+                        {% if page.url == meetings_agendas_url %} 
                         <li class="active">Agendas</li>
                         {% else %}
-                        <li><a href="/meetings/agendas/">Agendas</a></li>
+                        <li><a href="{{ site.baseurl }}meetings/agendas/">Agendas</a></li>
                         {% endif %}
-                        {% if page.url == "/meetings/minutes/index.html" %}
+                        {% if page.url == meetings_minutes_url %} 
                         <li class="active">Minutes</li>
                         {% else %}
-                        <li><a href="/meetings/minutes/">Minutes</a></li>
+                        <li><a href="{{ site.baseurl }}meetings/minutes/">Minutes</a></li>
                         {% endif %}
                     </ul>
                     </li>
-                    {% if baseurl == "/fees/" %}
+                    {% if page.url == fees_url %}
                     <li class="active">Student Fees</li>
                     {% else %}
-                    <li><a href="/fees/">Student Fees</a></li>
+                    <li><a href="{{ site.baseurl }}fees/">Student Fees</a></li>
                     {% endif %}
-                    {% if baseurl == "/recommendations/" %}
+                    {% if page.url == recommendations_url %}
                     <li class="active">Recommendations</li>
                     {% else %}
-                    <li><a href="/recommendations/">Recommendations</a></li>
+                    <li><a href="{{ site.baseurl }}recommendations/">Recommendations</a></li>
                     {% endif %}
-                    {% if baseurl == "/contact/" %}
+                    {% if page.url == contact_url %}
                     <li class="active">Contact</li>
                     {% else %}
-                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="{{ site.baseurl }}contact/">Contact</a></li>
                     {% endif %}
-                    {% if baseurl == "/members/" %}
+                    {% if page.url == members_url %}
                     <li class="active">Members</li>
                     {% else %}
-                    <li><a href="/members/">Members</a></li>
+                    <li><a href="{{ site.baseurl }}members/">Members</a></li>
                     {% endif %}
                 </ul>
             </div>
