@@ -22,7 +22,7 @@
 <script src="http://www.ucsd.edu/common/cwp/active-cherry/png-min.js"></script>
 <![endif]-->
 <!-- Site-specific CSS files -->
-<!-- <link href="res/site-specific.css" media="all" rel="stylesheet" type="text/css"/> -->
+<link href="/css/site.css" media="all" rel="stylesheet" type="text/css"/>
 <!-- Site-specific javascript files -->
 </head>
 <body>     
@@ -39,12 +39,12 @@
         $(document).ready(function() {
         $.ajax({
             url: "https://a4.ucsd.edu/tritON/resources/bugscript.jsp?target=https%3A%2F%2Fwww.ucsd.edu&jsoncallback=?",
-            dataType: "jsonp",
-            jsonpCallback: "a4sso",
+            dataType: 'jsonp',
+            jsonpCallback: 'a4sso',
             success: function(data) {
                 if (data.eduUcsdActLoggedin) {
-                    var url = "<div id=\"tdr_login_content\">You are logged in | <a href=\"<decorator:getProperty property="meta.ssologout.url" default="/security/logout" />?url=";
-                    url += "<decorator:getProperty property="meta.logout.url" default="http://www.ucsd.edu" />";
+                    var url = "<div id=\"tdr_login_content\">You are logged in | <a href=\"<decorator:getProperty property='meta.ssologout.url' default='/security/logout' />?url=";
+                    url += "<decorator:getProperty property='meta.logout.url' default='http://www.ucsd.edu' />";
                     url += "\">Log Out</a></div>";
                     $("#tdr_login").empty();
                     $("#tdr_login").append(url);

@@ -14,14 +14,24 @@
                     {% else %}
                     <li><a href="/about/">About</a></li>
                     {% endif %}
-                    {% if baseurl == "/meetings/" %}
+                    {% if page.url == "/meetings/index.html" %}
                     <li class="expanded active">Meetings
+                    {% elsif baseurl == "/meetings/" %}
+                    <li class="expanded"><a href="/meetings/">Meetings</a>
                     {% else %}
                     <li class="collapsed"><a href="/meetings/">Meetings</a>
                     {% endif %}
                     <ul>
+                        {% if page.url == "/meetings/agendas/index.html" %}
+                        <li class="active">Agendas</li>
+                        {% else %}
                         <li><a href="/meetings/agendas/">Agendas</a></li>
+                        {% endif %}
+                        {% if page.url == "/meetings/minutes/index.html" %}
+                        <li class="active">Minutes</li>
+                        {% else %}
                         <li><a href="/meetings/minutes/">Minutes</a></li>
+                        {% endif %}
                     </ul>
                     </li>
                     {% if baseurl == "/fees/" %}
