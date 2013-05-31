@@ -78,7 +78,7 @@
             {% capture recommendations_url %}{{ site.baseurl }}recommendations/index.html{% endcapture %}
             {% capture contact_url %}{{ site.baseurl }}contact/index.html{% endcapture %}
             {% capture members_url %}{{ site.baseurl }}members/index.html{% endcapture %}
-            {% capture subpage %}{{ site.baseurl }}{{ page.url | remove_first:site.baseurl | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
+            {% capture subpage %}{{ site.baseurl }}{{ page.url | remove_first:"/" | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
             {% capture meetings_subpage %}{{ site.baseurl }}meetings/{% endcapture %}
             <li{% if page.url == about_url %} class="active"{% endif %}><a href="{{ site.baseurl }}about/">About</a></li>
             <li{% if subpage == meetings_subpage %} class="active"{% endif %}><a href="{{ site.baseurl }}meetings/">Meetings</a>
@@ -119,7 +119,7 @@
             <li>HOME</li> 
             {% else %}
             <li><a href="{{ site.baseurl }}">HOME</a>
-            {% assign crumbs = page.url | remove_first:site.baseurl | remove:"/index.html" | split:"/" %}
+            {% assign crumbs = page.url | remove_first:"/" | remove:"/index.html" | split:"/" %}
             {% for crumb in crumbs %}
             &#16;</li><li>
             {% unless forloop.last %}
