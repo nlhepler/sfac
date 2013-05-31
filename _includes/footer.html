@@ -1,0 +1,78 @@
+        </div>
+    
+        <div id="tdr_2_col_nav">
+            <span id="site-logo">
+            <!-- This is where a department logo or graphic would go, positioned above the left-navigation. -->
+            <logo/>
+            </span>
+            
+            <div class="styled">
+                <h2>SFAC</h2>
+                <ul id="page_nav">
+                    {% if baseurl == "/about/" %}
+                    <li class="active">About</li>
+                    {% else %}
+                    <li><a href="/about/">About</a></li>
+                    {% endif %}
+                    {% if baseurl == "/meetings/" %}
+                    <li class="expanded active">Meetings
+                    {% else %}
+                    <li class="collapsed"><a href="/meetings/">Meetings</a>
+                    {% endif %}
+                    <ul>
+                        <li><a href="/meetings/agendas/">Agendas</a></li>
+                        <li><a href="/meetings/minutes/">Minutes</a></li>
+                    </ul>
+                    </li>
+                    {% if baseurl == "/fees/" %}
+                    <li class="active">Student Fees</li>
+                    {% else %}
+                    <li><a href="/fees/">Student Fees</a></li>
+                    {% endif %}
+                    {% if baseurl == "/recommendations/" %}
+                    <li class="active">Recommendations</li>
+                    {% else %}
+                    <li><a href="/recommendations/">Recommendations</a></li>
+                    {% endif %}
+                    {% if baseurl == "/contact/" %}
+                    <li class="active">Contact</li>
+                    {% else %}
+                    <li><a href="/contact/">Contact</a></li>
+                    {% endif %}
+                    {% if baseurl == "/members/" %}
+                    <li class="active">Members</li>
+                    {% else %}
+                    <li><a href="/members/">Members</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- End Navigation -->
+    </div>
+</div>
+<!-- footer -->
+<div id="tdr_footer">
+    <div id="tdr_footer_content">
+        <div id="tdr_address">
+            <span id="tdr_address_place">UC San Diego</span>
+            <span id="tdr_address_street">9500 Gilman Dr.</span>
+            <span id="tdr_address_city_state_zip">La Jolla, CA 92093</span>
+            <span id="tdr_address_phone">(858) 534-2230</span>
+        </div>
+        <div id="tdr_copyright">
+            Copyright ©<span id="tdr_copyright_year">2012</span> Regents of the University of California. All rights reserved.
+        </div>
+    
+        <ul id="tdr_footer_links">
+            <li><a href="http://www.ucsd.edu/_about/legal/index.html">Terms &amp; Conditions</a></li>
+            <li id="tdr_footer_feedback"><a href="http://www-act.ucsd.edu/cwp/feedback/tool/cwo">Feedback</a></li>
+        </ul>
+    
+        <!-- shib timeout -->
+        <img src="https://a4.ucsd.edu/tritON/imagebug" alt=" " style="display: none;" />
+
+        <!-- Insert Google Analytics code here if you have an account -->
+    </div>
+</div>
+</body>
+</html>
