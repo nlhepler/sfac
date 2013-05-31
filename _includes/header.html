@@ -70,16 +70,16 @@
 <div id="tdr_nav">
     <div id="tdr_nav_content">
         <ul id="tdr_nav_list">
-            {% capture about_url %}{{ site.baseurl }}about/index.html{% endcapture %}
-            {% capture meetings_url %}{{ site.baseurl }}meetings/index.html{% endcapture %}
-            {% capture meetings_agendas_url %}{{ site.baseurl }}meetings/agendas/index.html{% endcapture %}
-            {% capture meetings_minutes_url %}{{ site.baseurl }}meetings/minutes/index.html{% endcapture %}
-            {% capture fees_url %}{{ site.baseurl }}fees/index.html{% endcapture %}
-            {% capture recommendations_url %}{{ site.baseurl }}recommendations/index.html{% endcapture %}
-            {% capture contact_url %}{{ site.baseurl }}contact/index.html{% endcapture %}
-            {% capture members_url %}{{ site.baseurl }}members/index.html{% endcapture %}
-            {% capture subpage %}{{ site.baseurl }}{{ page.url | remove_first:"/" | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
-            {% capture meetings_subpage %}{{ site.baseurl }}meetings/{% endcapture %}
+            {% capture about_url %}/about/index.html{% endcapture %}
+            {% capture meetings_url %}/meetings/index.html{% endcapture %}
+            {% capture meetings_agendas_url %}/meetings/agendas/index.html{% endcapture %}
+            {% capture meetings_minutes_url %}/meetings/minutes/index.html{% endcapture %}
+            {% capture fees_url %}/fees/index.html{% endcapture %}
+            {% capture recommendations_url %}/recommendations/index.html{% endcapture %}
+            {% capture contact_url %}/contact/index.html{% endcapture %}
+            {% capture members_url %}/members/index.html{% endcapture %}
+            {% capture subpage %}/{{ page.url | remove_first:"/" | remove:"/index.html" | split:"/" | first }}/{% endcapture %}
+            {% capture meetings_subpage %}/meetings/{% endcapture %}
             <li{% if page.url == about_url %} class="active"{% endif %}><a href="{{ site.baseurl }}about/">About</a></li>
             <li{% if subpage == meetings_subpage %} class="active"{% endif %}><a href="{{ site.baseurl }}meetings/">Meetings</a>
                 <ul>
@@ -136,5 +136,3 @@
 <div class="tdr_fonts" id="tdr_content">
     <div id="tdr_content_content">
         <div id="tdr_2_col_content">
-            {{ subpage }}
-            &quot;{{ crumbs | join:"&quot;,&quot;" }}&quot;
